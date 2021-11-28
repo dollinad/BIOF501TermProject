@@ -37,14 +37,14 @@ dev.off()
 expt_trimmed <- prune_taxa(taxa_sums(expt)>0, expt)
 png("05-visuals/02-alpha_diversity.png", units="cm", width=20, height=15, res = 300, pointsize = 6)
 p <-  plot_richness(expt_trimmed, x=col_names[1], color = col_names[2], nrow = 2)
-(p + geom_boxplot(data=p$data, aes(x=col_names[1], y=value, color=NULL), alpha=0.1))
+(p + geom_boxplot(data=p$data, aes(x=p$data[, 1], y=value, color=NULL), alpha=0.1))
 dev.off()
 
 ## Relative abundance 
 expt.rarefied = rarefy_even_depth(expt, rngseed=1, sample.size=0.9*min(sample_sums(expt)), replace=F)
 expt.phylum = tax_glom(expt.rarefied, taxrank="Phylum", NArm=FALSE)
 png("05-visuals/03-relative_abundance.png", units = "cm", width = 20, height = 15, res = 300, pointsize = 6)
-plot_bar(expt.phylum, fill="Phylum") + facet_wrap(~col_names[1], scales= "free_x", nrow=1)
+plot_bar(expt.phylum, fill="Phylum") + facet_wrap(col_names[1], scales= "free_x", nrow=1)
 dev.off()
 
 ## beta diversity - 2 variables 
