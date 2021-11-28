@@ -102,10 +102,12 @@ rule qiime2_import_data:
     message:
         "Importing data into qiime2"
     shell: 
-        "qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' \
+        """
+        qiime tools import --type 'SampleData[PairedEndSequencesWithQuality]' \
         --input-path {input.manFile} --output-path {output} \
-        --input-format PairedEndFastqManifestPhred33V2"
-        "rm -r '01-data/' && touch rawDataRemoved.txt"
+        --input-format PairedEndFastqManifestPhred33V2
+        rm -r '01-data/' && touch rawDataRemoved.txt
+        """
 
 
 ## Step 6: Summarize qiime2 data 
