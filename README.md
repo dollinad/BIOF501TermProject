@@ -1,2 +1,1 @@
-# BIOF501TermProject
-Term Project for BIOF 501 UBC!
+# Exploring microbiome profiles using QIIME2 and Phyloseq
