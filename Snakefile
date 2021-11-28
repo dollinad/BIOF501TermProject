@@ -49,7 +49,7 @@ rule all:
         visualsOut + "04-beta_diversity.png",
         visualsOut + "05-heirarchal_clustering.png",
         visualsOut + "06-phylogenetics_tree.png"
-'''
+
 ## Step 1: download data
 rule download_data:
     input:
@@ -69,7 +69,7 @@ rule download_data:
         echo "Running fasterq-dump"
         cat {input} | xargs fasterq-dump -e 4 --outdir {sampleDir} 2> DownloadLog1.txt
         """
-'''
+
 ## Step 2: Fastqc
 rule fastqc:
     input:
