@@ -32,17 +32,6 @@ with open(accessionList) as f:
 rule all:
     input:
         expand(multiqcOut + "multiqc_report.html"),
-        qiimeOut + "paired-end-data.qza", 
-        visualsOut + "paired-end-data.qzv",
-        qiimeOut + "table.qza",
-        qiimeOut + "rep-seqs.qza",
-        qiimeOut + "denoising-stats.qza",
-        qiimeOut + "aligned-rep-seqs.qza",
-        qiimeOut + "masked-aligned-rep-seqs.qza",
-        qiimeOut + "unrooted-tree.qza",
-        qiimeOut + "rooted-tree.qza", 
-        qiimeOut + "taxonomy.qza",
-        RPhyloseq,
         visualsOut + "01-rarefraction.png",
         visualsOut + "02-alpha_diversity.png",
         visualsOut + "03-relative_abundance.png",
@@ -227,6 +216,7 @@ rule R_AnalysisPrep:
 ## Step 10: R analysis 
 rule phyloseq_analysis:
     input:
+        phyloDir = RPhyloseq,
         script = "scripts/R_analysis.R"
     output:
         visualsOut + "01-rarefraction.png",
