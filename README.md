@@ -21,7 +21,7 @@ The pipeline is built using snakemake and conda and it will be assumed that user
 - `multiqc=1.11`
 - `r-base=4.0.5`
 - `phyloseq=1.34.0`
-- `r-vegan=2.5-7`
+- `r-vegan=2.5_7`
 
 Other minor dependencies are listed in `spec-file.txt`.
 
@@ -64,8 +64,36 @@ In one chunk, this is:
   conda activate microbiome
   snakemake --use-conda --cores 4
   ```
-
+  
 ## Input 
+The workflow needs the following files in the `00-helperfiles` as input:
+- `accessionList.txt`: A list of run accessions to download from SRA.
+
+    |   |
+    |---|
+    |SRR6920043|
+    |SRR6920044|
+    |'''|
+   
+- `metadata.txt`: A tab-delimited text file containing three columns: SRA run ID, variable 1, and variable 2.
+    
+    |id|gynecologic_disord|ethnicity|
+    |:---:|:---:|:---:|
+    |SRR6920043|post-radiotherapy|African-american|
+    |SRR6920044|pre-radiotherapy|African-american|
+    |'''|'''|'''|
+    
+- `manifest.txt`: A tab-delimited text file containing three columns: SRA run ID, relative path for forward and reverse reads.
+
+    |sample-id|forward-absolute-filepath|reverse-absolute-filepath|
+    |:---:|:---:|:---:|
+    |SRR6920043|01-data/SRR6920043_1.fastq|01-data/SRR6920043_2.fastq|
+    |SRR6920044|01-data/SRR6920044_1.fastq|01-data/SRR6920044_2.fastq
+    |'''|'''|'''|
+    
+- `gg-13-8-99-nb-classifier.qza`: A pre-built classifier from QIIME2.
+
+
 
 ## Expected output
 The visual results from the pipeline can be found in the folder `05-visuals/` and are generated using the `R_analysis.R` script under the `scripts/` folder. 
