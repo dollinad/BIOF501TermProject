@@ -47,7 +47,7 @@ rule download_data:
         expand(sampleDir + "{sample}_{read}.fastq", sample=samples, read=reads)
     threads: 4
     message:
-        "Downloading data from SRA. This step takes ~10 mins!"
+        "Downloading data from SRA."
     shell:
         #"cd 01-data/ && sh ../{input} | tee downloadLog.txt"
         """
