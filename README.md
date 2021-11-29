@@ -14,11 +14,21 @@ The recent advances in high-throughput sequencing has enables us to
 
 
 ## Dependencies
-The main dependencies of this workflow include
+The pipeline is built using snakemake and conda and it will be assumed that users have [git](https://github.com/git-guides/install-git), [conda](https://docs.conda.io/projects/conda/en/latest/index.html), and [snakemake](https://snakemake.readthedocs.io/en/stable/) installed. The main dependencies of this workflow include:
+- `sra-toolkit=2.11.0`
+- `qiime2=2021.8.0`
+- `fastqc=0.11.9`
+- `multiqc=1.11`
+- `r-base=4.0.5`
+- `phyloseq=1.34.0`
+- 'r-vegan=2.5-7`
+Other minor dependencies are listed in `spec-file.txt`.
 
 ## Workflow
 An overview of the workflow could be represented using a Directed Acyclic graph as shown below: 
-![Screen Shot 2021-11-28 at 5 07 39 PM](https://user-images.githubusercontent.com/39140769/143794295-5b410f46-0dc9-4625-8c2e-6c66bb897679.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/39140769/143794295-5b410f46-0dc9-4625-8c2e-6c66bb897679.png?raw=true">
+</p>
 
 The main steps of the workflow include:
 1) **Download raw data**: This step needs an list of accession numbers to download raw paired-end data from the Sequence Read Archive (SRA) using `pre-fetch` and `fasterq-dump` commands from the `sra-toolkit`.
