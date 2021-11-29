@@ -221,7 +221,7 @@ rule phyloseq_analysis:
         phyloDir = RPhyloseq,
         script = "scripts/R_analysis.R"
     output:
-        visualsOut + "01-rarefraction.png",
+        visualsOut + "01-rarefaction.png",
         visualsOut + "02-alpha_diversity.png",
         visualsOut + "03-relative_abundance.png",
         visualsOut + "04-beta_diversity.png",
