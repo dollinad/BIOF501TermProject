@@ -99,7 +99,11 @@ The workflow needs the following files in the `00-helperfiles` as input:
 ## Expected output
 The visual results from the pipeline can be found in the folder `05-visuals/` and are generated using the `R_analysis.R` script under the `scripts/` folder. The pipeline will generate the following results:
 
-1) Quality control:
+1) Quality control: Quality checks were performed using FastQC and MultiQC and the results from these tools could be found in `02/fastqc/` and `03/multiqc/`, respectively. Both FastQC and MultiQC generate an html report that could be viewed through a browser. Additional quality control was performed using QIIME2 and a corresponding QIIME visualization was generated which could be found in `05-visuals/`. To view a QIIME2 visual, use the following command:
+```
+qiime tools view paired-end-data.qzv
+```
+The visualization should open in the default browser. A screenshot is attached below.
 
 ![Screen Shot 2021-11-28 at 5 25 02 PM](https://user-images.githubusercontent.com/39140769/143795228-cba214c6-379f-4a61-82b2-097b8891874b.png)
 
