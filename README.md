@@ -10,12 +10,12 @@
 7. [References](https://github.com/dollinad/BIOF501TermProject/blob/main/README.md#references)
 
 ## Background and hypothesis
-The recent advances in high-throughput sequencing has given us increasing evidence of the association of microbiome and human cancers. While many standalone platforms and R packages such as QIIME2, DADA2, phyloseq, and vegan have been published and widely used to conduct microbiome analysis, limited worflows have been developed that allow intergation of these tools. Here we use Snakemake, QIIME2 and Phyloseq to build a flexible, automated workflow to peform in-depth and reprdoucble analysis on any paired-end V4 16S rRNA microbiome data with two groups of interest and another variable that could account for variance in the dataset. 
+The recent advances in high-throughput sequencing has given us increasing evidence of the association of microbiome and human cancers [1](https://pubmed.ncbi.nlm.nih.gov/27709424/). While many standalone platforms and R packages such as [QIIME2](https://qiime2.org/), [DADA2](https://benjjneb.github.io/dada2/index.html), [phyloseq](https://joey711.github.io/phyloseq/), and [vegan](https://github.com/vegandevs/vegan) have been published and widely used to conduct microbiome analysis, limited worflows have been developed that allow intergation of these tools. Here we use [Snakemake](https://snakemake.readthedocs.io/en/stable/index.html), QIIME2 and phyloseq to build a flexible, automated workflow to peform in-depth and reprdoucble analysis on any paired-end V4 16S rRNA microbiome data with two groups of interest and another variable that could account for variance in the dataset. 
 
-The dataset that is will be used in this pipeline was first described by Tsementzi et. al (2020). The objective of this study was to compare vaginal microbiota in gynecologic cancers (endometrial/cervical) patients pre- and post- radiation therapy and healthy women. For the purposes of project, the dataset was randomly subsmapled to include five pre- and five post- radiation therapy (two groups of interest) from carival cancer patients of different ethnicity (another variable). The hypothesis that the pipleine aims to test is that the microbiome composition is different within the two groups of interest and some of the varerince in the dataset could be explained by an additional variable. The workflow aims to provide a visual report consisting of plots that describe rarefrcation curves, alpha and diversity, relative abundance of phyla in the two groups, hierarchical clustering, and phylogenetic trees. A complete list of accession IDs, and revlevant metadata of the dataset used is available in `00-helperfiles/metadata.txt`.
+The dataset that is will be used in this pipeline was first described by Tsementzi et. al (2020) [2](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7286461/#cam43027-sup-0002). The objective of this study was to compare vaginal microbiota in gynecologic cancers (endometrial/cervical) patients pre- and post- radiation therapy and healthy women. For the purposes of project, the dataset was randomly subsmapled to include five pre- and five post- radiation therapy (two groups of interest) from carival cancer patients of different ethnicity (another variable). The hypothesis that the pipleine aims to test is that the microbiome composition is different within the two groups of interest and some of the varerince in the dataset could be explained by an additional variable. The workflow aims to provide a visual report consisting of plots that describe rarefrcation curves, alpha and diversity, relative abundance of phyla in the two groups, hierarchical clustering, and phylogenetic trees. A complete list of accession IDs, and revlevant metadata of the dataset used is available in `00-helperfiles/metadata.txt`.
 
 ## Dependencies
-The pipeline is built using snakemake and conda and it will be assumed that users have [git](https://github.com/git-guides/install-git), [conda](https://docs.conda.io/projects/conda/en/latest/index.html), and [snakemake](https://snakemake.readthedocs.io/en/stable/) installed. The main dependencies of this workflow include:
+The pipeline is built using snakemake and conda and it will be assumed that users have [git](https://github.com/git-guides/install-git), [conda](https://docs.conda.io/projects/conda/en/latest/index.html), and Snakemake installed. The main dependencies of this workflow include:
 - `sra-toolkit=2.11.0`
 - `qiime2=2021.8.0`
 - `fastqc=0.11.9`
@@ -33,7 +33,7 @@ An overview of the workflow could be represented using a Directed Acyclic graph 
 </p>
 
 The main steps of the workflow include:
-1) **Download raw data**: This step needs an list of accession numbers to download raw paired-end data from the Sequence Read Archive (SRA) using `pre-fetch` and `fasterq-dump` commands from the `sra-toolkit`.
+1) **Download raw data**: This step needs an list of accession numbers to download raw paired-end data from the [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra) using `pre-fetch` and `fasterq-dump` commands from the `sra-toolkit`.
 2) **Initial quality control**: The fastq files are then analyzed for qualiy checks using `FastQC` and `MultiQC`.
 3) **Import data into QIIME2**: The fastq files will then be imported into a QIIME artifact (qza). After importing data, the pipeline will remove all raw data files downloaded from the SRA to optimize memory usage and therefore, these raw fastq files will not be accessible after the data has been imported into QIIME2. 
 4) **Quality control using QIIME2**: The paied-end data artifact generated is then summaried using a QIIME2 visualization (qzv).
@@ -129,3 +129,6 @@ qiime tools export --input-path 04-qiime2/table.qza --output-path outputDir/
 ```
 
 ## References
+1) Yang, Jiqiao, et al. "Gastrointestinal microbiome and breast cancer: correlations, mechanisms and potential clinical implications." Breast Cancer 24.2 (2017): 220-228.
+2) Tsementzi, Despina, et al. "Comparison of vaginal microbiota in gynecologic cancer patients pre‐and post‐radiation therapy and healthy women." Cancer medicine 9.11 (2020): 3714-3724.
+
