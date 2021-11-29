@@ -103,7 +103,7 @@ The visual results from the pipeline can be found in the folder `05-visuals/` an
 
 ![Screen Shot 2021-11-28 at 5 25 02 PM](https://user-images.githubusercontent.com/39140769/143795228-cba214c6-379f-4a61-82b2-097b8891874b.png)
 
-2) `05-visuals/01-rarefraction.png`:
+2) `05-visuals/01-rarefaction.png`:
 ![01-rarefraction](https://user-images.githubusercontent.com/39140769/143795233-d32890b9-21a2-4888-80df-eb1b0c72dbab.png)
 
 3) `05-visuals/02-alpha-diversity.png`:
