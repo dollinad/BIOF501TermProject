@@ -1,4 +1,4 @@
-# Workflow for exxploring microbiome profiles using QIIME2 and Phyloseq
+# Workflow for exploring microbiome profiles using QIIME2 and Phyloseq
 
 ## Table of Contents
 1. [Background and hypothesis](https://github.com/dollinad/BIOF501TermProject/blob/main/README.md#background-and-hypothesis)
