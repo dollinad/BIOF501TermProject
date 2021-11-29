@@ -22,6 +22,7 @@ The pipeline is built using snakemake and conda and it will be assumed that user
 - `r-base=4.0.5`
 - `phyloseq=1.34.0`
 - 'r-vegan=2.5-7`
+
 Other minor dependencies are listed in `spec-file.txt`.
 
 ## Workflow
