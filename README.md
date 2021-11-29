@@ -93,22 +93,38 @@ The workflow needs the following files in the `00-helperfiles` as input:
     
 - `gg-13-8-99-nb-classifier.qza`: A pre-built classifier from QIIME2.
 
+***Note:****Even though QIIME2 and the colname in `manifest.txt` need absolute paths to forward and reverse reads. it is sufficient to provide a relative path as the pipeline will automatically change this file to include an absolute path. 
+
 ## Expected output
-The visual results from the pipeline can be found in the folder `05-visuals/` and are generated using the `R_analysis.R` script under the `scripts/` folder. 
+The visual results from the pipeline can be found in the folder `05-visuals/` and are generated using the `R_analysis.R` script under the `scripts/` folder. The pipeline will generate the following results:
+
+1) Quality control:
 
 ![Screen Shot 2021-11-28 at 5 25 02 PM](https://user-images.githubusercontent.com/39140769/143795228-cba214c6-379f-4a61-82b2-097b8891874b.png)
 
+2) `05-visuals/01-rarefraction.png`:
 ![01-rarefraction](https://user-images.githubusercontent.com/39140769/143795233-d32890b9-21a2-4888-80df-eb1b0c72dbab.png)
 
+3) `05-visuals/02-alpha-diversity.png`:
 ![02-alpha_diversity](https://user-images.githubusercontent.com/39140769/143795239-565eede6-6f24-4b99-97ac-0f149893eb3a.png)
 
+4) `05-visuals/relative_abundance.png`:
 ![03-relative_abundance](https://user-images.githubusercontent.com/39140769/143795241-f4daa325-e72e-48e4-bd4c-d66239a2e347.png)
 
+5) `05-visuals/04-beta_diversity.png`:
 ![04-beta_diversity](https://user-images.githubusercontent.com/39140769/143795256-91a2961f-9b75-4e4c-8716-f9fa902a8f20.png)
 
+6) `05-visuals/05-heirarchal_clustering.png`:
 ![05-heirarchal_clustering](https://user-images.githubusercontent.com/39140769/143795264-30a31047-78a3-44b4-b3ca-d48c6194aa02.png)
 
+7) `05-visuals/06-phylogenetics_tree.png`:
 ![06-phylogenetics_tree](https://user-images.githubusercontent.com/39140769/143795271-a1e90bbc-9dba-4da0-9ca4-2beb00cfd5e2.png)
 
+Other intermediate output files that could be used for additional downstream analysis include `04-qiime2/table.qza` (ASV table), `04-qiime2/rep-seqs.qza` (representative sequences for ASVs), `04-qiime2/aligned-rep-seqs.qza`, `04-qiime2/rooted-tree.qza`, `04-qiime2/unrooted-tree.qza`.
+
+Since the above mentioned files are QIIME2 artifacts, they would be exported from the compressed object before analysis. For example, to export the ASV table use the following command.
+```
+qiime tools export --input-path 04-qiime2/table.qza --output-path outputDir/
+```
 
 ## References
