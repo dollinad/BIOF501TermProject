@@ -88,12 +88,10 @@ The workflow needs the following files in the `00-helperfiles` as input:
     |sample-id|forward-absolute-filepath|reverse-absolute-filepath|
     |:---:|:---:|:---:|
     |SRR6920043|01-data/SRR6920043_1.fastq|01-data/SRR6920043_2.fastq|
-    |SRR6920044|01-data/SRR6920044_1.fastq|01-data/SRR6920044_2.fastq
+    |SRR6920044|01-data/SRR6920044_1.fastq|01-data/SRR6920044_2.fastq|
     |'''|'''|'''|
     
 - `gg-13-8-99-nb-classifier.qza`: A pre-built classifier from QIIME2.
-
-
 
 ## Expected output
 The visual results from the pipeline can be found in the folder `05-visuals/` and are generated using the `R_analysis.R` script under the `scripts/` folder. 
