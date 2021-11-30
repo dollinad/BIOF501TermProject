@@ -103,26 +103,31 @@ The visual results from the pipeline can be found in the folder `05-visuals/` an
 ```
 qiime tools view paired-end-data.qzv
 ```
-The visualization should open in the default browser. A screenshot is attached below.
+The visualization should open in the default browser. As shown in the example below, this visual helps users to trim reads keepng only high quality bases by remving primers and other sequencing artifacts. 
 
 ![Screen Shot 2021-11-28 at 5 25 02 PM](https://user-images.githubusercontent.com/39140769/143795228-cba214c6-379f-4a61-82b2-097b8891874b.png)
 
-2) `05-visuals/01-rarefaction.png`:
+2) `05-visuals/01-rarefaction.png`: Shows the number of species observed at various sequence depths. 
+
 ![01-rarefraction](https://user-images.githubusercontent.com/39140769/143795233-d32890b9-21a2-4888-80df-eb1b0c72dbab.png)
 
-3) `05-visuals/02-alpha-diversity.png`:
+3) `05-visuals/02-alpha-diversity.png`: Generated using raw ASV table (not rarefied) and displays differences between the two groups (pre- and post- radiation). The figure shows that the number of species (species richess) is different for pre- and post- radiation groups.
+
 ![02-alpha_diversity](https://user-images.githubusercontent.com/39140769/143795239-565eede6-6f24-4b99-97ac-0f149893eb3a.png)
 
-4) `05-visuals/relative_abundance.png`:
+4) `05-visuals/relative_abundance.png`: Generated using rarefied data at 90% of minimum sample depth and shows the relative abundance of phylum in the two groups. The figure shows that there is an enrichment of Tenericutes and Fusobacteria in pre-radiation and an increase of Spirochaetes post-radiation. 
+
 ![03-relative_abundance](https://user-images.githubusercontent.com/39140769/143795241-f4daa325-e72e-48e4-bd4c-d66239a2e347.png)
 
-5) `05-visuals/04-beta_diversity.png`:
+5) `05-visuals/04-beta_diversity.png`: Multidimensional scaling (MDS) on various distance metrics to measure the dissimilarity between the pre- and post- radiation samples. 
+
 ![04-beta_diversity](https://user-images.githubusercontent.com/39140769/143795256-91a2961f-9b75-4e4c-8716-f9fa902a8f20.png)
 
-6) `05-visuals/05-heirarchal_clustering.png`:
+6) `05-visuals/05-heirarchal_clustering.png`: Generated using the Bray-Curtis distance method and ard's linkage method for heirarchal cluster analysis. The figure was generated using teh vegan package in R. 
+
 ![05-heirarchal_clustering](https://user-images.githubusercontent.com/39140769/143795264-30a31047-78a3-44b4-b3ca-d48c6194aa02.png)
 
-7) `05-visuals/06-phylogenetics_tree.png`:
+7) `05-visuals/06-phylogenetics_tree.png`: A phylogenetic tree using fifty most abundant taxa.
 ![06-phylogenetics_tree](https://user-images.githubusercontent.com/39140769/143795271-a1e90bbc-9dba-4da0-9ca4-2beb00cfd5e2.png)
 
 Other intermediate output files that could be used for additional downstream analysis include `04-qiime2/table.qza` (ASV table), `04-qiime2/rep-seqs.qza` (representative sequences for ASVs), `04-qiime2/aligned-rep-seqs.qza`, `04-qiime2/rooted-tree.qza`, `04-qiime2/unrooted-tree.qza`.
